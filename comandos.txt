@@ -20,3 +20,6 @@ git push -u origin master
 
 # forzar la subida
 git push -f origin master
+
+
+git status
