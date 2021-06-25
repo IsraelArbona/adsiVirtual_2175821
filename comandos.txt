@@ -1,0 +1,22 @@
+# Crear nuestro usuarios en git.
+# Crear el repositorio.
+
+# configuración global de git
+
+git config --global --list
+
+git config --global user.name 'xxxxxxx'
+git config --global user.password 'xxxxxx'
+git config --global user.email 'correo electronico'
+
+
+git init
+git add .
+git commit -m 'Inicio de los proyectos'
+
+git remote add origin https://github.com/IsraelArbona/adsiVirtual_2175821.git
+
+git push -u origin master
+
+# forzar la subida
+git push -f origin master
