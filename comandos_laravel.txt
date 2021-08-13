@@ -1,0 +1,78 @@
+# instalacion de laravel en la c\:xampp\htdocs\
+composer create-project --prefer-dist laravel/laravel adsi21-app "5.8.*" 
+
+# crear la autenticacion en laravel
+php artisan make:auth
+
+
+
+# Configuración de laravel
+
+php artisan cache:clear
+php artisan config:clear
+
+
+Instalacion de node 
+
+npm install
+
+# Corregir errores de sasss
+npm install sass@1.32.13 --save-dev
+
+# Crear migración, modelo, controller
+php artisan make:model Pais -a
+
+
+# crear un seeder
+php artisan make:seeder UsersTableSeeder
+
+
+# Eliminar todas las tablas
+php artisan migrate:reset
+
+
+# migrar todas las tablas a la base
+php artisan migrate:refresh --seed
+
+
+
+# agregar controlador independiente
+php artisan make:controller UserController --resource
+
+
+
+# manejo de formularios
+composer require "laravelcollective/html:5.8.0"
+
+# debemos agregar una linea al providers
+
+# Instalacion de datatables js
+
+npm install --save jszip
+npm install --save pdfmake
+npm install --save datatables.net-bs4
+npm install --save datatables.net-autofill-bs4
+npm install --save datatables.net-buttons-bs4
+npm install --save datatables.net-responsive-bs4
+
+composer require yajra/laravel-datatables-oracle
+composer require yajra/laravel-datatables-buttons
+composer require yajra/laravel-datatables-html
+composer require yajra/laravel-datatables
+
+
+# debemos agregar una linea al providers
+
+Yajra\DataTables\DataTablesServiceProvider::class,
+
+'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+
+
+
+# creamos webpack
+npm run dev
+
+
+
+
+
