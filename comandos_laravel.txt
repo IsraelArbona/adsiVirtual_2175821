@@ -26,6 +26,8 @@ php artisan make:model Pais -a
 # crear un seeder
 php artisan make:seeder UsersTableSeeder
 
+php artisan make:seeder PermissionTableSeeder
+
 
 # Eliminar todas las tablas
 php artisan migrate:reset
@@ -73,6 +75,19 @@ Yajra\DataTables\DataTablesServiceProvider::class,
 npm run dev
 
 
+# Instalacion de roles y permisos.
+composer require spatie/laravel-permission:^3.13
+
+# agregamos el providers de los permisos
+
+'providers' => [
+    // ...
+    Spatie\Permission\PermissionServiceProvider::class,
+];
+
+# publicar los modelos para los roles y permisos
+
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
 
 
 

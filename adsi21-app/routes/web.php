@@ -17,21 +17,27 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->group(function (){
+    
+    Route::get('/home', 'HomeController@index')->name('home');
 
+    // Modulo principal
 
-// Modulo principal
+    // Usuarios
+    Route::get('principal.users','UserController@index')->name('principal.users.index')
+    ->middleware('permission:principal.users.index');
 
-// Usuarios
-Route::get('principal.users','UserController@index')->name('principal.users.index');
-// mostrar usuario
-Route::get('principal.users/{user}','UserController@show')->name('principal.users.show');
-// guardar usuarios
-Route::get('principal.users.create','UserController@create')->name('principal.users.create');
-Route::post('principal.users.store','UserController@store')->name('principal.users.store');
-// editar usuarios
-Route::put('principal.users/{user}','UserController@update')->name('principal.users.update');
-Route::get('principal.users/{user}/edit','UserController@edit')->name('principal.users.edit');
-// eliminar usuarios
-Route::delete('principal.users/{user}','UserController@destroy')->name('principal.users.destroy');
+    // mostrar usuario
+    Route::get('principal.users/{user}','UserController@show')->name('principal.users.show');
+    // guardar usuarios
+    Route::get('principal.users.create','UserController@create')->name('principal.users.create');
+    Route::post('principal.users.store','UserController@store')->name('principal.users.store');
+    // editar usuarios
+    Route::put('principal.users/{user}','UserController@update')->name('principal.users.update');
+    Route::get('principal.users/{user}/edit','UserController@edit')->name('principal.users.edit');
+    // eliminar usuarios
+    Route::delete('principal.users/{user}','UserController@destroy')->name('principal.users.destroy');
+
+});
+
 

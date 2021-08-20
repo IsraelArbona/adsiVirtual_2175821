@@ -7,7 +7,9 @@
             <div class="card">
                 <div class="card-header">
                     Registro Usuarios
-                    <a href="{{ route('principal.users.create') }}" class="btn btn-sm btn-outline-primary float-right">Nuevo</a>
+                    @can('principal.users.create')
+                        <a href="{{ route('principal.users.create') }}" class="btn btn-sm btn-outline-primary float-right">Nuevo</a>
+                    @endcan
                 </div>
 
                 <div class="card-body">
