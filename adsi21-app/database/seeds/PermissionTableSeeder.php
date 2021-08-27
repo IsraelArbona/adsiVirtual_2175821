@@ -25,6 +25,13 @@ class PermissionTableSeeder extends Seeder
         Permission::create(['name' => 'principal.users.create']);
         Permission::create(['name' => 'principal.users.destroy']);
 
+        // Permisos de roles
+        Permission::create(['name' => 'principal.roles.index']);
+        Permission::create(['name' => 'principal.roles.edit']);
+        Permission::create(['name' => 'principal.roles.show']);
+        Permission::create(['name' => 'principal.roles.create']);
+        Permission::create(['name' => 'principal.roles.destroy']);
+
 
         // Creamos los roles
         $adminS = Role::create(['name' => 'Super-Administrador']);

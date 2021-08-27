@@ -38,6 +38,22 @@ Route::middleware(['auth'])->group(function (){
     // eliminar usuarios
     Route::delete('principal.users/{user}','UserController@destroy')->name('principal.users.destroy');
 
+
+    // Roles
+    Route::get('principal.roles','RoleController@index')->name('principal.roles.index')
+    ->middleware('permission:principal.roles.index');
+
+    // mostrar roles
+    Route::get('principal.roles/{role}','RoleController@show')->name('principal.roles.show');
+    // guardar roles
+    Route::get('principal.roles.create','RoleController@create')->name('principal.roles.create');
+    Route::post('principal.roles.store','RoleController@store')->name('principal.roles.store');
+    // editar roles
+    Route::put('principal.roles/{role}','RoleController@update')->name('principal.roles.update');
+    Route::get('principal.roles/{role}/edit','RoleController@edit')->name('principal.roles.edit');
+    // eliminar roles
+    Route::delete('principal.roles/{role}','RoleController@destroy')->name('principal.roles.destroy');
+
 });
 
 
