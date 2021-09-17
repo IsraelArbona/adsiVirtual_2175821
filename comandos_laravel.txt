@@ -91,3 +91,7 @@ php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvid
 
 
 
+
+
+# Link para el manejo de excel.
+https://docs.laravel-excel.com/3.1/getting-started/installation.html

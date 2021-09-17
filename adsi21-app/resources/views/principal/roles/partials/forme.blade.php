@@ -1,6 +1,7 @@
 <div class="form-group">
     {{ Form::label('name','Nombre') }}
     {{ Form::text('name',null,['class'=>'form-control']) }}
+    {{ Form::hidden('guard_name','web') }}
 </div>
 
 <h3>Lista de Permisos</h3>

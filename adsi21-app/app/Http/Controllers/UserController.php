@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Exports\UserExport;
 
 class UserController extends Controller
 {
@@ -104,5 +105,10 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         return back()->with('info','Usuario Eliminado');
+    }
+
+    public function exportExcel()
+    {
+        return new UserExport();
     }
 }

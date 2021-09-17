@@ -8,8 +8,13 @@
                 <div class="card-header">
                     Registro Usuarios
                     @can('principal.users.create')
-                        <a href="{{ route('principal.users.create') }}" class="btn btn-sm btn-outline-primary float-right">Nuevo</a>
+                        <a href="{{ route('principal.users.create') }}" class="btn btn-sm btn-outline-primary float-right" style="margin-left:20px !important;">Nuevo</a>
                     @endcan
+
+                    <a href="{{ route('principal.users.exportExcel') }}" class="btn btn-sm btn-outline-primary float-right" style="margin-left:20px !important;">
+                        Exp. Excel
+                    </a>
+                   
                 </div>
 
                 <div class="card-body">

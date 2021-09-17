@@ -37,6 +37,8 @@ Route::middleware(['auth'])->group(function (){
     Route::get('principal.users/{user}/edit','UserController@edit')->name('principal.users.edit');
     // eliminar usuarios
     Route::delete('principal.users/{user}','UserController@destroy')->name('principal.users.destroy');
+    // exportar excel
+    Route::get('User-List.xlsx','UserController@exportExcel')->name('principal.users.exportExcel');
 
 
     // Roles

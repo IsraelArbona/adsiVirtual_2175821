@@ -34,7 +34,7 @@ class PermissionTableSeeder extends Seeder
 
 
         // Creamos los roles
-        $adminS = Role::create(['name' => 'Super-Administrador']);
+        $adminS = Role::create(['name' => 'Administrador-Super']);
         $admin =  Role::create(['name' => 'Administrador']);
 
         // Asignar los permisos Super-Administrador
@@ -46,7 +46,7 @@ class PermissionTableSeeder extends Seeder
 
         // Asignar el rol al usuario
         $adminS_user = User::find(1);
-        $adminS_user->assignRole('Super-Administrador');
+        $adminS_user->assignRole('Administrador-Super');
 
         $admin_user = User::find(2);
         $admin_user->assignRole('Administrador');
