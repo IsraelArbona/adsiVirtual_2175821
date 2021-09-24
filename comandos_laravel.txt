@@ -21,6 +21,8 @@ npm install sass@1.32.13 --save-dev
 
 # Crear migración, modelo, controller
 php artisan make:model Pais -a
+php artisan make:model Dpto -a
+php artisan make:model Ciudad -a
 
 
 # crear un seeder

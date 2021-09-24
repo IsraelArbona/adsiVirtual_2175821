@@ -16,6 +16,7 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Item:</h6>
+
             @can('principal.users.index')
                 <a class="collapse-item" href="{{ route('principal.users.index')}}">Usuario</a>
             @endcan
@@ -23,7 +24,14 @@
             @can('principal.roles.index')
                 <a class="collapse-item" href="{{ route('principal.roles.index')}}">Roles</a>
             @endcan
-            <a class="collapse-item" href="#">Paises</a>
+
+            @can('principal.pais.index')
+                <a class="collapse-item" href="{{ route('principal.pais.index')}}">Paises</a>
+            @endcan
+            
+            @can('principal.dptos.index')
+                <a class="collapse-item" href="{{ route('principal.dptos.index')}}">Departamentos</a>
+            @endcan
         </div>
     </div>
 </li>
