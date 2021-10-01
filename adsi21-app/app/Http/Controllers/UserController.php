@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\Exports\UserExport;
+use App\Imports\UsersImport;
+
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -111,4 +114,11 @@ class UserController extends Controller
     {
         return new UserExport();
     }
+
+    public function importExcel(Request $request){
+        Excel::import(new UsersImport, request()->file('fileusuario'));
+        return back();
+    }
+
+
 }

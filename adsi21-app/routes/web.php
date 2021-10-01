@@ -47,6 +47,9 @@ Route::middleware(['auth'])->group(function (){
     Route::get('User-List.xlsx','UserController@exportExcel')->name('principal.users.exportExcel')
     ->middleware('permission:principal.users.index');
 
+    Route::post('principal.users','UserController@importExcel')->name('principal.users.importExcel')
+    ->middleware('permission:principal.users.index');
+
 
     // Roles
     Route::get('principal.roles','RoleController@index')->name('principal.roles.index')
