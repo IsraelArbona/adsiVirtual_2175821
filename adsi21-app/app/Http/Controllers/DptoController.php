@@ -6,6 +6,10 @@ use App\Pais;
 use App\Dpto;
 use Illuminate\Http\Request;
 
+use App\Imports\DptosImport;
+
+use Maatwebsite\Excel\Facades\Excel;
+
 class DptoController extends Controller
 {
     /**
@@ -111,5 +115,10 @@ class DptoController extends Controller
         $dpto = Dpto::find($id);
         $dpto->delete();
         return back()->with('info','Departamento Eliminado');
+    }
+
+    public function importExcel(Request $request){
+        Excel::import(new DptosImport, request()->file('filedptos'));
+        return back();
     }
 }

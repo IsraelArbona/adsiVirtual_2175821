@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Pais;
 use Illuminate\Http\Request;
+use App\Imports\PaisesImport;
+
+use Maatwebsite\Excel\Facades\Excel;
 
 class PaisController extends Controller
 {
@@ -103,5 +106,10 @@ class PaisController extends Controller
         $pais = Pais::find($id);
         $pais->delete();
         return back()->with('info','Pais Eliminado');
+    }
+
+    public function importExcel(Request $request){
+        Excel::import(new PaisesImport, request()->file('filepais'));
+        return back();
     }
 }

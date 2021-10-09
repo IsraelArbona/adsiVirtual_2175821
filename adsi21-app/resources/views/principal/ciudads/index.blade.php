@@ -10,19 +10,19 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="excelModalLabel">Importar Paises</h5>
+                        <h5 class="modal-title" id="excelModalLabel">Importar Ciudades</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                        <form action="{{ route('principal.pais.importExcel')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('principal.ciudads.importExcel')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         
                             <div class="modal-body">
                         
                                 <div class="form-group">
-                                    <input type="file" name="filepais" class="custom-file-input" id="custumfilepais" required>
-                                    <label class="custom-file-label" for="custumfilepais">Paises</label>
+                                    <input type="file" name="fileciudad" class="custom-file-input" id="custumfileciudad" required>
+                                    <label class="custom-file-label" for="custumfileciudad">Ciudades</label>
                                 </div>
                         
                             </div>
@@ -37,10 +37,14 @@
 
             <div class="card">
                 <div class="card-header">
-                    Registro Pais
-                    @can('principal.pais.create')
-                        <a href="{{ route('principal.pais.create') }}" class="btn btn-sm btn-outline-primary float-right" style="margin-left:20px !important;">Nuevo</a>
+                    Registro Ciudades
+                    @can('principal.ciudads.create')
+                        <a href="{{ route('principal.ciudads.create') }}" class="btn btn-sm btn-outline-primary float-right" style="margin-left:20px !important;">Nuevo</a>
                     @endcan
+
+                    <a href="{{ route('principal.ciudads.exportExcel') }}" class="btn btn-sm btn-outline-primary float-right" style="margin-left:20px !important;">
+                        Exp. Excel
+                    </a>
 
                     <a  class="btn btn-sm btn-outline-primary float-right" data-toggle="modal" data-target="#excelModal" style="margin-left:20px !important;">
                         Imp. Excel
@@ -48,12 +52,12 @@
                 </div>
 
                 <div class="card-body">
-                    <table id="tpais" class="display compact table table-striped table-bordered dt-responsive nowrap">
+                    <table id="tciudads" class="display compact table table-striped table-bordered dt-responsive nowrap">
                         <thead>
                             <tr>
                                 <th>Codigo</th>
                                 <th>Nombre</th>
-                                <th>Abrev</th>
+                                <th>Dptos</th>
                                 <th width="80px">action</th>
                             </tr>
                         </thead>
@@ -61,7 +65,7 @@
                             <tr>
                                 <th>Codigo</th>
                                 <th>Nombre</th>
-                                <th>Abrev</th>
+                                <th>Dptos</th>
                                 <th>action</th>
                             </tr>
                         </tfoot>
@@ -80,14 +84,14 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-            $('#tpais').DataTable({
+            $('#tciudads').DataTable({
                 "serverSide": true,
                 "responsive": true,
-                "ajax": "{{ route('principal.pais.index')}}",
+                "ajax": "{{ route('principal.ciudads.index')}}",
                 "columns": [
-                    {data: 'id'},
-                    {data: 'nombre'},
-                    {data: 'abrev'},
+                    {data: 'id', name:'ciudads.id'},
+                    {data: 'nombre', name:'ciudads.nombre'},
+                    {data: 'dnombre', name:'dptos.nombre'},
                     {data: 'action', orderable: false, searchable:false}
                 ],
                 "dom": "<'row'<'col-lg-10 col-md-10 col-xs-12'f><'col-lg-2 col-md-2 col-xs-12'l>>" +

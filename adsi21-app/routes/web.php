@@ -94,6 +94,10 @@ Route::middleware(['auth'])->group(function (){
     Route::delete('principal.pais/{pais}','PaisController@destroy')->name('principal.pais.destroy')
     ->middleware('permission:principal.pais.destroy');
 
+    //Importar los paises
+    Route::post('principal.pais','PaisController@importExcel')->name('principal.pais.importExcel')
+    ->middleware('permission:principal.pais.index');
+
 
     // Dptos
     Route::get('principal.dptos','DptoController@index')->name('principal.dptos.index')
@@ -115,6 +119,42 @@ Route::middleware(['auth'])->group(function (){
     // eliminar Dptos
     Route::delete('principal.dptos/{dpto}','DptoController@destroy')->name('principal.dptos.destroy')
     ->middleware('permission:principal.dptos.destroy');
+
+    // Importar dptos
+    Route::post('principal.dptos','DptoController@importExcel')->name('principal.dptos.importExcel')
+    ->middleware('permission:principal.dptos.index');
+
+
+    // Ciudades
+    Route::get('principal.ciudads','CiudadController@index')->name('principal.ciudads.index')
+    ->middleware('permission:principal.ciudads.index');
+
+    // mostrar ciudades
+    Route::get('principal.ciudads/{ciudad}','CiudadController@show')->name('principal.ciudads.show')
+    ->middleware('permission:principal.ciudads.show');
+    // guardar ciudades
+    Route::get('principal.ciudads.create','CiudadController@create')->name('principal.ciudads.create')
+    ->middleware('permission:principal.ciudads.create');
+    Route::post('principal.ciudads.store','CiudadController@store')->name('principal.ciudads.store')
+    ->middleware('permission:principal.ciudads.create');
+    // editar ciudades
+    Route::put('principal.ciudads/{ciudad}','CiudadController@update')->name('principal.ciudads.update')
+    ->middleware('permission:principal.ciudads.edit');
+    Route::get('principal.ciudads/{ciudad}/edit','CiudadController@edit')->name('principal.ciudads.edit')
+    ->middleware('permission:principal.ciudads.edit');
+    // eliminar ciudades
+    Route::delete('principal.ciudads/{ciudad}','CiudadController@destroy')->name('principal.ciudads.destroy')
+    ->middleware('permission:principal.ciudads.destroy');
+
+
+    // exportar ciudades
+    Route::get('Ciudades-List.xlsx','CiudadController@exportExcel')->name('principal.ciudads.exportExcel')
+    ->middleware('permission:principal.ciudads.index');
+
+    // Importar ciudades
+    Route::post('principal.ciudads','CiudadController@importExcel')->name('principal.ciudads.importExcel')
+    ->middleware('permission:principal.ciudads.index');
+    
 
 });
 

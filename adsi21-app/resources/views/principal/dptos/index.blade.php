@@ -4,12 +4,47 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+
+            <!-- Modal -->
+            <div class="modal fade" id="excelModal" tabindex="-1" aria-labelledby="excelModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="excelModalLabel">Importar Dptos</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <form action="{{ route('principal.dptos.importExcel')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        
+                            <div class="modal-body">
+                        
+                                <div class="form-group">
+                                    <input type="file" name="filedptos" class="custom-file-input" id="custumfiledptos" required>
+                                    <label class="custom-file-label" for="custumfiledptos">Dptos</label>
+                                </div>
+                        
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-header">
                     Registro Departamentos
                     @can('principal.dptos.create')
                         <a href="{{ route('principal.dptos.create') }}" class="btn btn-sm btn-outline-primary float-right" style="margin-left:20px !important;">Nuevo</a>
                     @endcan
+
+                    <a  class="btn btn-sm btn-outline-primary float-right" data-toggle="modal" data-target="#excelModal" style="margin-left:20px !important;">
+                        Imp. Excel
+                    </a>
                 </div>
 
                 <div class="card-body">
